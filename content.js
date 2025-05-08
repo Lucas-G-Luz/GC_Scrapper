@@ -122,6 +122,9 @@ function scrapePlayerData() {
         }
       }
 
+      // Calculate DIFF (Kills - Deaths)
+      const diff = (parseFloat(cols[getIndex(['K'])].textContent) - parseFloat(cols[getIndex(['D'])].textContent)).toString();
+
       // Calculate rating
       const rating = (
         0.35 +
@@ -130,11 +133,12 @@ function scrapePlayerData() {
         0.00186 * kast
       ).toFixed(2);
 
-      console.log('Player data:', { name, level, adr, kdr, kast, rp, rating });
+      console.log('Player data:', { name, level, diff, adr, kdr, kast, rp, rating });
 
       jogadores.push({ 
         name, 
         level: level.toString(), 
+        diff,
         adr: adr.toFixed(2), 
         kdr: kdr.toFixed(2), 
         kast: kast.toString(), 
