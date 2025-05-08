@@ -13,6 +13,7 @@ Thumbs.db
 # Arquivos de IDE/Editor
 .idea/
 .vscode/
+.vs/
 *.swp
 *.swo
 
